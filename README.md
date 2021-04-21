@@ -1,3 +1,11 @@
+
+# To run this project 
+Run npm install.\
+Run npm start.\ 
+
+Thanks for your time! Please Enjoy.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
