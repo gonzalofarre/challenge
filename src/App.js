@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Suspense } from "react";
+import { Provider } from 'react-redux';
+import {ConnectedRouter} from 'connected-react-router';
+import {history} from './store/configureStore';
+import Routes from './routes';
+import { BrowserRouter as Router } from 'react-router-dom';
+import SearchPage from "./components/searchPage/searchPageView";
 
-function App() {
+function App(props) {
+const {store} = props;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      
+      <ConnectedRouter history={history}>
+      <Router>
+      <Suspense fallback= {<SearchPage />}>
+        <Routes />
+        </Suspense>
+        </Router>
+      </ConnectedRouter>
+      
+    </Provider>
   );
 }
 
